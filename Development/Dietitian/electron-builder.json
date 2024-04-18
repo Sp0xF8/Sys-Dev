@@ -1,0 +1,10 @@
+{
+	"appId": "com.example.yourapp",
+	"productName": "YourAppName",
+	"directories": {
+	  "output": "dist"
+	},
+	"files": [
+	  "**/*"
+	]
+  }

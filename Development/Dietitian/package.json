@@ -1,14 +1,16 @@
 {
-  "name": "dietitian",
-  "version": "1.0.0",
-  "description": "Machine Learning Application for Patient Referral",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron ."
-  },
-  "author": "Sp0xF8",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^30.0.1"
-  }
+	"name": "dietitian",
+	"version": "1.0.0",
+	"description": "Machine Learning Application for Patient Referral",
+	"main": "main.js",
+	"scripts": {
+		"start:electron": "electron .",
+		"build:electron": "electron-builder build"
+	},
+	"author": "Sp0xF8",
+	"license": "MIT",
+	"devDependencies": {
+		"electron": "^30.0.1",
+		"electron-builder": "^24.13.3",
+	}
 }
