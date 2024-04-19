@@ -8,7 +8,7 @@ import NavBar from "@/app/ui/elements/NavBar";
 
 
 export const metadata: Metadata = {
-  title: "Sign in | Dietitian Referral App",
+  title: "Healthcare Operator | Dietitian Referral App",
   description: "Sign into the Dietitian Referral App",
 };
 
@@ -18,11 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 		<body className={inter.className}>
 			<Providers>
-				<NavBar/>
+				<div className=" drop-shadow-xl dark:shadow-white">
+					<NavBar/>
 					{children}
+				</div>
 			</Providers>
 		</body>
     </html>
