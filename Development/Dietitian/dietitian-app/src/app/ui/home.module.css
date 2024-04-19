@@ -1,0 +1,15 @@
+.shape {
+	height: 0;
+	width: 0;
+	border-bottom: 30px solid rgb(194, 252, 2);
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+  }
+
+
+.headder {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	color: #000;
+}
