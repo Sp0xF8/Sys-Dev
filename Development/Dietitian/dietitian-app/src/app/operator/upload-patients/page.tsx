@@ -4,40 +4,38 @@ import { oswald } from "@/app/ui/fonts";
 
 import ThemeSwitch from "@/app/ui/elements/ThemeSwitch";
 
+import FileUpload from "@/app/ui/elements/FileUpload";
+
+
 export default function uPatients() {
 
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 ">
 
-		<div className="rounded overflow-hidden shadow-lg bg-slate-200 max-w-md">
-			<div className="font-bold text-4xl shadow-md w-full flex-col text-center py-3">
+
+
+	return (
+		<main className="flex min-h-screen flex-col items-center justify-center p-24 dark:bg-slate-800 ">
+
+			<div  className="rounded overflow-hidden shadow-2xl dark:shadow-s dark:shadow-gray-600 bg-slate-200 dark:bg-gray-500 w-10/12 mx-auto">
+				<div className="font-bold text-4xl shadow-md flex justify-center items-center py-3">
 					Upload Patients
-			</div>
-			<div className="px-6 py-4">
-				
-				<form className="w-full">
-					<label className="block text-gray-700 text-sm font-bold mb-2 text-center" htmlFor="passkey">
-						Passkey
-					</label>
-					<div className="flex justify-center">
-						<input className="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center" id="passkey" type="text" placeholder="Passkey" />
-					</div>
-				
+				</div>
+				<div className="px-6 py-4 flex flex-col items-center">
 
-					<div className="flex items-center justify-between  mt-4">
-						<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-auto w-1/2" type="button">
-							Sign In
-						</button>
-					</div>
+					<p className="text-center text-2xl">Here you can upload new patient files!</p>
 
-				</form>
-				<div className="flex justify-center">
-						
+					<p className="text-center text-2xl">Click the button below to browse your computer.</p>
+					<br />
+
+					<FileUpload />
+
+					<br/>
+					<p className="text-center text-2xl">After Uploading, it is now possible to analyse patients.</p>
+
+
 				</div>
 			</div>
-		</div>
 
-      
-    </main>
-  );
+
+		</main>
+	);
 }

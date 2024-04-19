@@ -8,10 +8,10 @@ import Link from "next/link";
 export default function Dashboard() {
 
 	return (
-		<main className="h-screen max-h-fit justify-center p-5 bg-slate-200 dark:bg-slate-800 ">
+		<main className="h-screen max-h-fit justify-center p-5  dark:bg-slate-800 ">
 
-			<div className="flex justify-between h-4/6">
-				<div className="rounded overflow-hidden shadow-lg bg-blue-600 dark:bg-gray-500 w-full mb-3">
+			<div className="flex justify-between h-4/6 shadow-2xl dark:shadow-s dark:shadow-gray-600">
+				<div className="rounded overflow-hidden shadow-lg bg-blue-600 dark:bg-gray-500 w-full ">
 					<div className="font-bold text-4xl shadow-md w-full flex-col text-center py-3 px-2">
 						Overview of CCU Ward
 					</div>
@@ -86,7 +86,7 @@ export default function Dashboard() {
 							</div>
 						</div>
 
-						<div className="flex h-full justify-center items-center w-4/12 pl-5">
+						<div className="flex h-full justify-center items-center w-4/12 pl-5 ">
 							<div className="rounded overflow-hidden shadow-lg bg-slate-800 text-white dark:bg-gray-600 w-full h-5/6">
 								<div className="font-bold text-xl shadow-md w-full flex-col text-center h-7 justify-center items-center">
 									Demographics within the Ward
@@ -109,9 +109,9 @@ export default function Dashboard() {
 			</div>
 
 
-			<div className="rounded overflow-hidden w-full flex justify-between h-40 pb-5">
+			<div className="rounded overflow-hidden w-full flex justify-between  h-48  mt-5">
 
-				<div className="rounded overflow-hidden shadow-lg bg-slate-500 w-full mr-2">
+				<div className="rounded overflow-hidden bg-slate-500 w-full mr-2 shadow-xl dark:shadow-md dark:shadow-gray-600">
 					<div className="font-bold text-xl shadow-md w-full flex-col text-center h-7 justify-center items-center">
 						Missing Values in Patient Data
 					</div>
@@ -121,7 +121,7 @@ export default function Dashboard() {
 					</div>
 				</div>
 
-				<div className="rounded overflow-hidden shadow-lg bg-slate-500 w-full ml-2">
+				<div className="rounded overflow-hidden bg-slate-500 w-full ml-2 shadow-xl dark:shadow-md dark:shadow-gray-600">
 					<div className="font-bold text-xl shadow-md w-full flex-col text-center h-7 justify-center items-center">
 						Ranges of Data in the Patient List
 					</div>
