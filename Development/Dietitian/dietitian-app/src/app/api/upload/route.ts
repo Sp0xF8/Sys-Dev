@@ -4,6 +4,9 @@ import { writeFile } from "fs/promises";
 import { join } from "path";
 
 
+import { exec, spawn, fork } from "child_process";
+
+
 export async  function POST(req: NextRequest) {
 
 	const data = await req.formData();
@@ -20,9 +23,10 @@ export async  function POST(req: NextRequest) {
 	const buffer = Buffer.from(bytes);
 
 
-	const filePath = join("./", 'public/tmp', file.name);
+	const filePath = join("./", 'public/tmp', "patients.csv");
 
 	await writeFile(filePath, buffer);
 
 	return NextResponse.json({ success: true });
 }
+

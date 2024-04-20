@@ -1,11 +1,5 @@
-import Image from "next/image";
 
-import { oswald } from "@/app/ui/fonts";
-
-import ThemeSwitch from "@/app/ui/elements/ThemeSwitch";
-
-
-
+import Analyse from "@/app/ui/elements/analyse";
 
 export default function aPatients() {
 
@@ -26,8 +20,7 @@ export default function aPatients() {
 					<p className="text-center text-2xl">Click the button below to begin analysis!</p>
 					<br />
 
-					<button type='submit' className='w-3/4 h-20 bg-blue-600 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2' >Analyse</button>
-
+					<Analyse />
 					<br/>
 					<p className="text-center text-2xl dark:text-orange-400">Warning: This process can be time consuming, while it shouldnt take longer than a few minues- Be mindful of execution!</p>
 
