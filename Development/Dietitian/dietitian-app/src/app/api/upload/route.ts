@@ -4,8 +4,7 @@ import { writeFile } from "fs/promises";
 import { join } from "path";
 
 
-import { exec, spawn, fork } from "child_process";
-
+import { getPythonScriptStdout } from "@/app/scripts/runpython";
 
 export async  function POST(req: NextRequest) {
 
@@ -26,6 +25,9 @@ export async  function POST(req: NextRequest) {
 	const filePath = join("./", 'public/tmp', "patients.csv");
 
 	await writeFile(filePath, buffer);
+
+
+	getPythonScriptStdout('src/app/scripts/dumppatients.py');
 
 	return NextResponse.json({ success: true });
 }

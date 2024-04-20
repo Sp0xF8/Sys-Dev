@@ -11,7 +11,6 @@ export default function Analyse() {
 
 	const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
 		try {
 
 			const res = await fetch('/api/analyse', {
@@ -27,9 +26,12 @@ export default function Analyse() {
 			}
 
 
-			res.json().then((data) => {
-				console.log(data);
-			})
+			const data = await res.json();
+			const json = JSON.parse(data.response);
+			
+
+			console.log("analyse: "+ json);
+		
 
 		} catch (error) {
 			console.error(error);

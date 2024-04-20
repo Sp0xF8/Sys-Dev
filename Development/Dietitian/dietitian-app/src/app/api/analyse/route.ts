@@ -1,23 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { getPythonScriptStdout } from "@/app/scripts/runpython";
 
-const {spawn} = require('child_process');
-
-const getPythonScriptStdout = (pythonScriptPath: string) => {
-	const python = spawn('python', [pythonScriptPath]);
-	return new Promise((resolve, reject) => {
-		let result = ""
-		python.stdout.on('data', (data: string) => { // Explicitly type 'data' as string
-			result += data
-		});
-		python.on('close', () => {
-			resolve(result)
-		});
-		python.on('error', (err: Error) => { // Explicitly type 'err' as Error
-			reject(err)
-		});
-	})
-}
 
 export async function POST(req: NextRequest) {
 	
@@ -27,17 +11,9 @@ export async function POST(req: NextRequest) {
 		return NextResponse.json({ success: false });
 	}
 
-	console.log("Analyse Patients");
+	const pyOutput = await getPythonScriptStdout('src/app/scripts/analyse.py');
+	const response = JSON.stringify(pyOutput);
 
-	const py = spawn('python', ['src/app/api/analyse/analyse.py']);
-
-	getPythonScriptStdout('src/app/api/analyse/analyse.py').then((output) => {
-		console.log("Python Output: __" + output);
-
-		return NextResponse.json({ success: true, output: output });
-	});
-
-
-	
+	return NextResponse.json({ success: true, response});
 	
 }
