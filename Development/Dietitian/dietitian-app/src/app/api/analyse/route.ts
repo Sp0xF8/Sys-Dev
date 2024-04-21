@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
 		return NextResponse.json({ success: false });
 	}
 
-	const pyOutput = await getPythonScriptStdout('src/app/scripts/analyse.py');
+	const pyOutput = await getPythonScriptStdout('src/app/scripts/analysef.py');
 	const response = JSON.stringify(pyOutput);
 
 	return NextResponse.json({ success: true, response});

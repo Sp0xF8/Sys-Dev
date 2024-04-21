@@ -8,6 +8,14 @@ def dump_patients():
 	#drop referral column
  
 	df = df.drop(columns=['referral'])
+
+
+	description = df.describe(include='all').T
+
+	## turn description into a dictionary
+	description_dict = description.to_dict()
+
+
 	df.replace(np.nan, "NaN", inplace=True)
 
 
@@ -24,15 +32,24 @@ def dump_patients():
 	#convert back to dataframe
 	df = pd.DataFrame(array, columns=df.columns)
 
+	## build description of dataframe and save in new variable
 	
 
+	dataframe_dict = df.to_dict(orient='records')
 
-
-	return df.to_dict(orient='records')
+	return  { "description": description_dict, "data": dataframe_dict }
 
 
 ## write to file json
 
 
+output = dump_patients()
+
 with open('src/app/scripts/patients.json', 'w') as f:
-	json.dump(dump_patients(), f, indent=4)
+
+	json.dump(output['data'], f)
+
+with open('src/app/scripts/patients_means.json', 'w') as f:
+	
+	json.dump(output['description'], f)
+	
