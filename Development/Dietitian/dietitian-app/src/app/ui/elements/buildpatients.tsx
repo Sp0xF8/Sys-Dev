@@ -12,6 +12,7 @@ import { on } from "events";
 export default function Analyse() {
 
 	const [patients, setPatients] = useState([]);
+	const [pred, setPred] = useState([]);
 
 	
 	let [start_table, setStartTable] = useState(0);
@@ -37,12 +38,14 @@ export default function Analyse() {
 
 
 			const data = await res.json();
-			const json = JSON.parse(data.response);
+			const data_json = JSON.parse(data.data_response);
+			const pred_json = JSON.parse(data.pred_response);
 
 
-			console.log("analyse: " + json);
+			console.log("analyse: " + data_json);
 
-			setPatients(json);
+			setPatients(data_json);
+			setPred(pred_json);
 
 
 		} catch (error) {
@@ -93,6 +96,18 @@ export default function Analyse() {
 
 		
 		for (let i = 0; i < 17; i++) {
+
+			let dynamicReferral = [];
+
+			if(pred[i] === 0.0) {
+				dynamicReferral.push(
+					<div className="text-center text-green-600 bg-slate-300 dark:text-green-400 dark:bg-slate-800 rounded-md border-gray-400 dark:border-cyan-800 border ">No</div>
+				);
+			} else {
+				dynamicReferral.push(
+					<div className="text-center text-slate-200 bg-red-600 dark:text-red-200 dark:bg-red-900 rounded-md border-gray-400 dark:border-cyan-800 border ">Yes</div>
+				);
+			}
 			
 
 			if(i % 2 === 0){
@@ -116,7 +131,7 @@ export default function Analyse() {
 						<td className="border-r border-black px-4 py-2">{patients[i]?.tidal_vol_kg}</td>
 						<td className="border-r border-black px-4 py-2">{patients[i]?.tidal_vol_spon}</td>
 						<td className="border-r border-black px-4 py-2">{patients[i]?.bmi}</td>
-						<td className=" px-4 py-2"></td>
+						<td className=" px-4 py-2">{dynamicReferral}</td>
 					</tr>
 				);
 				
@@ -141,7 +156,7 @@ export default function Analyse() {
 						<td className="border-r border-black px-4 py-2">{patients[i]?.tidal_vol_kg}</td>
 						<td className="border-r border-black px-4 py-2">{patients[i]?.tidal_vol_spon}</td>
 						<td className="border-r border-black px-4 py-2">{patients[i]?.bmi}</td>
-						<td className=" px-4 py-2"></td>
+						<td className=" px-4 py-2">{dynamicReferral}</td>
 					</tr>
 				);
 			}
@@ -203,7 +218,7 @@ export default function Analyse() {
 								<th className="px-4 py-2">Tidal Vol kg</th>
 								<th className="px-4 py-2">Tidal Vol Spon</th>
 								<th className="px-4 py-2">BMI</th>
-								<th className="px-4 py-2 rounded-tr-2xl">Referral</th>
+								<th className="px-4 py-2 rounded-tr-2xl">Reccomended</th>
 							</tr>
 							</thead>
 							<tbody>
