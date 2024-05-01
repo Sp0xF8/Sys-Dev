@@ -13,7 +13,7 @@ export default function uPatients() {
 
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-center p-24 dark:bg-slate-800 ">
+		<main className="h-screen flex flex-col items-center justify-center p-24 dark:bg-slate-800 ">
 
 			<div  className="rounded overflow-hidden shadow-2xl dark:shadow-s dark:shadow-gray-600 bg-slate-200 dark:bg-gray-500 w-10/12 mx-auto">
 				<div className="font-bold text-4xl shadow-md flex justify-center items-center py-3">

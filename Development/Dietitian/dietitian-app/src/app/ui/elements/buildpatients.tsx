@@ -173,7 +173,7 @@ export default function Analyse() {
 					<div className="w-full mb-3">
 						<div className="w-4/12 inline-block">
 							<form onSubmit={prevTable} className="w-full flex justify-center">
-								<button type="submit" className='w-3/4 h-10 bg-blue-600 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2 ' >
+								<button type="submit" className='w-3/4 h-10 bg-blue-400 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2 ' >
 									<ImArrowLeft2 className="inline-block mx-2" />
 									Previous
 								</button>
@@ -181,7 +181,7 @@ export default function Analyse() {
 						</div>
 						<div className="w-4/12 inline-block">
 							<form onSubmit={onSubmit} className="w-full flex justify-center">
-								<button type="submit" className='w-3/4 h-10 bg-blue-600 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2 ' >
+								<button type="submit" className='w-3/4 h-10 bg-blue-400 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2 ' >
 									Reload
 									<ImConnection className="inline-block mx-2" />
 								</button>
@@ -189,7 +189,7 @@ export default function Analyse() {
 						</div>
 						<div className="w-4/12 inline-block">
 							<form onSubmit={nextTable} className="w-full  flex  justify-center" >
-								<button type="submit" className='w-3/4 h-10 bg-blue-600 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2' >
+								<button type="submit" className='w-3/4 h-10 bg-blue-400 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2' >
 									Next
 									<ImArrowRight2 className="inline-block mx-2" />
 								</button>
@@ -238,7 +238,7 @@ export default function Analyse() {
 		return (
 			<div className="w-8/12 ">
 				<form onSubmit={onSubmit} className="w-full ">
-					<button type="submit" className='w-full h-10 bg-blue-600 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2' >
+					<button type="submit" className='w-full h-10 bg-blue-400 dark:bg-slate-800 dark:text-green-600 text-black font-bold rounded-md text-center text-2xl mt-2' >
 						Reload
 						<ImConnection className="inline-block mx-2" />
 					</button>

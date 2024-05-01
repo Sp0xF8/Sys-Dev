@@ -14,6 +14,11 @@ export async function POST(req: NextRequest) {
 
 	const json = JSON.parse(jsonData);
 
+	const pred_data = await readFile('src/app/scripts/classifier.json', 'utf-8');
+
+	const pred_json = JSON.parse(pred_data);
+
+
 	const reqBody = await req.json();
 
 
@@ -27,8 +32,11 @@ export async function POST(req: NextRequest) {
 		}
 
 		const response = JSON.stringify(json[patient]);
+		const pred_response = JSON.stringify(pred_json[patient]);
 
-		return NextResponse.json({ success: true, patient: response});
+		console.log(pred_response);
+
+		return NextResponse.json({ success: true, patient: response, pred: pred_response});
 
 	
 	}
@@ -43,14 +51,14 @@ export async function POST(req: NextRequest) {
 			if(json[i].encounterId == `${patient}`) {
 
 				const response = JSON.stringify(json[i]);
-				return NextResponse.json({ success: true, patient: response});
+				const pred_response = JSON.stringify(pred_json[i]);
+
+				console.log(pred_response);
+
+				return NextResponse.json({ success: true, patient: response, pred: pred_response});
 
 			}
 		}
-
-		
-
-		return NextResponse.json({ success: false}, {status: 400});
 
 	}
 	

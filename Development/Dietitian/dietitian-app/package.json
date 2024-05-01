@@ -12,11 +12,14 @@
     "build:electron": "electron-builder"
   },
   "dependencies": {
+    "@types/chart.js": "^2.9.41",
     "app-root-path": "^3.1.0",
+    "chart.js": "^4.4.2",
     "electron-is-dev": "^3.0.1",
     "next": "14.2.2",
     "next-themes": "^0.3.0",
     "react": "^18",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
     "react-icons": "^5.1.0"
   },

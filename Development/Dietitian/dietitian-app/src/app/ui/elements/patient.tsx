@@ -13,6 +13,8 @@ export default function patient() {
 	const [patient, setPatient] = useState([]);
 	const [patient_id, setPatientId] = useState(0);
 
+	const [pred, setPred] = useState(0);
+
 	const [mean, setMean] = useState(0);
 
 
@@ -38,13 +40,16 @@ export default function patient() {
 			const data = await res.json();
 
 			const patient_json = JSON.parse(data.patient);
+			const pred_json = JSON.parse(data.pred);
 			// const mean_json = JSON.parse(data.mean);
 
 
 			console.log("patient: " + patient_json);
+			console.log("pred: " + pred_json);
 			// console.log("mean: " + mean_json);
 
 			setPatient(patient_json);
+			setPred(pred_json);
 
 			// setMean(mean_json);
 
@@ -78,13 +83,16 @@ export default function patient() {
 			const data = await res.json();
 
 			const patient_json = JSON.parse(data.patient);
+			const pred_json = JSON.parse(data.pred);
 			// const mean_json = JSON.parse(data.mean);
 
 
 			console.log("patient: " + patient_json);
+			console.log("pred: " + pred_json);
 			// console.log("mean: " + mean_json);
 
 			setPatient(patient_json);
+			setPred(pred_json);
 
 			// setMean(mean_json);
 
@@ -147,13 +155,13 @@ export default function patient() {
 			tital = tital.toUpperCase();
 
 			info.push(
-				<div className="  w-full p-2">
-					<div className="dark:bg-slate-500 min-h-40 rounded-l">
-						<div className="dark:bg-slate-700 min-h-16">
+				<div className="w-full p-2">
+					<div className="dark:bg-slate-500 bg-gray-300  min-h-40 rounded-l">
+						<div className="dark:bg-slate-700 bg-slate-400 min-h-16">
 							<span className="text-2xl text-center">{tital}</span>
 						</div>
 					
-						<span className="text-2xl text-center">{patient[`${key}`]}</span>
+						<span className="text-2xl text-center ">{patient[`${key}`]}</span>
 					</div>
 					
 				</div>
@@ -161,12 +169,38 @@ export default function patient() {
 			)
 		}
 
-		reccomendations.push(
-			<div className="dark:bg-slate-600 w-3/12 min-h-48 m-auto rounded-xl">
-				adad
-			</div>
+
+
+		if (pred) {
+
+			reccomendations.push(
+				<div className="dark:bg-slate-600 bg-slate-400 w-3/12 min-h-48 m-auto rounded-xl shadow-xl">
+					<div className="dark:bg-slate-700 min-h-16 rounded-t-xl">
+						<span className="text-2xl text-center">Encounter : {patient["encounterId"]}</span>
+					</div>
+					<div className="dark:bg-red-500 bg-red-300 min-h-32 rounded-b-xl">
+						<span className="text-2xl text-center">This patient is reccomended for referral!</span>
+					</div>
+				</div>
+			
+			)
+
+		} else {
 		
-		)
+			reccomendations.push(
+				<div className="dark:bg-slate-600 bg-slate-400 w-3/12 min-h-48 m-auto rounded-xl shadow-xl">
+					<div className="dark:bg-slate-700 min-h-16 rounded-t-xl">
+						<span className="text-2xl text-center">Encounter : {patient["encounterId"]}</span>
+					</div>
+					<div className="dark:bg-slate-400 bg-gray-300 min-h-32 rounded-b-xl">
+						<span className="text-2xl text-center">This patient is not reccomended for referral!</span>
+					</div>
+				</div>
+			
+			)
+		}
+
+		
 
 
 	}
@@ -175,7 +209,7 @@ export default function patient() {
 
 	return (
 
-		<div className="flex flex-col items-center justify-center p-8 dark:bg-slate-800 ">
+		<div className="flex flex-col items-center justify-center p-8 dark:bg-slate-800 rounded-md ">
 
 			<div className="inline-flex justify-center ">
 				<div className="flex flex-col items-center justify-center dark:bg-slate-800 ">

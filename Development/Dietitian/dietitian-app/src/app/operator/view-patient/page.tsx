@@ -15,7 +15,6 @@ export default function aPatients() {
 				</div>
 				<div className="px-2 py-4 w-full m-auto justify-center  text-center">
 
-					dd
 					<Patient />
 					
 		

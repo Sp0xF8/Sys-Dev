@@ -36,7 +36,8 @@ def visualised_missing_data(data):
 	plt.tight_layout()
 
 	# Save the graph to a file
-	plt.savefig('src/app/scripts/data_distribution.png')  # Save as PNG
+	# plt.savefig('src/app/scripts/data_distribution.png')  # Save as PNG
+	plt.savefig('./public/data_distribution.png')  # Save as PNG
 	# plt.savefig('data_distribution.png')  # Save as PNG
 
 	# Optional: Close the plot to free up memory
